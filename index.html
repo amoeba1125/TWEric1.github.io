@@ -181,9 +181,9 @@
         </div>
     </div>
     <script>
-        const estimate = new Date("2023-06-31T23:59:59+08:00")
-        const timerEl = document.getElementById('timer')
-        const dayStatusEl = document.getElementById('day-status')
+        const estimate = new Date("2023-07-01T00:00:00+08:00");
+        const timerEl = document.getElementById('timer');
+        const dayStatusEl = document.getElementById('day-status');
                 
         function update() {
             const timeRemain = estimate.getTime() - Date.now();
@@ -212,7 +212,7 @@
             requestAnimationFrame(update);
         }
 
-        update()
+        update();
     </script>
 </body>
 </html>
