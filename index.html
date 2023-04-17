@@ -176,40 +176,39 @@
                 </div>
             </div>
         </div>
-            <script>
-                const estimate = new Date("2023-06-31T23:59:59+08:00")
-                const timerEl = document.getElementById('timer')
-                const dayStatusEl = document.getElementById('day-status')
+        <script>
+            const estimate = new Date("2023-06-31T23:59:59+08:00")
+            const timerEl = document.getElementById('timer')
+            const dayStatusEl = document.getElementById('day-status')
                 
-            function update() {
-                const timeRemain = estimate.getTime() - Date.now();
-                const positive = timeRemain > 0;
-                const timeAbs = Math.abs(timeRemain);
+        function update() {
+            const timeRemain = estimate.getTime() - Date.now();
+            const positive = timeRemain > 0;
+            const timeAbs = Math.abs(timeRemain);
 
-                const day = Math.floor(timeAbs / 86400 / 1000);
-                const r1 = timeAbs % (86400 * 1000);
-                const hour = Math.floor(r1 / 3600 / 1000);
-                const r2 = r1 % (3600 * 1000);
-                const minute = Math.floor(r2 / 60 / 1000);
-                const r3 = r2 % (60 * 1000);
-                const second = Math.floor(r3 / 1000);
-                const pad = i => i < 10 ? '' + i : '' + i;
+            const day = Math.floor(timeAbs / 86400 / 1000);
+            const r1 = timeAbs % (86400 * 1000);
+            const hour = Math.floor(r1 / 3600 / 1000);
+            const r2 = r1 % (3600 * 1000);
+            const minute = Math.floor(r2 / 60 / 1000);
+            const r3 = r2 % (60 * 1000);
+            const second = Math.floor(r3 / 1000);
+            const pad = i => i < 10 ? '' + i : '' + i;
 
-                if (positive) {
-                    timerEl.textContent = 'Remaining ' + pad(day) + 'd ' + pad(hour) + 'h ' + pad(minute) + 'm ' + pad(second) + 's';
-                } else {
-                    timerEl.textContent = 'Over ' + pad(day) + 'd ' + pad(hour) + 'h ' + pad(minute) + 'm ' + pad(second) + 's';
-                }
-
-                if (!positive) {
-                    timerEl.style.color = "red";
-                    dayStatusEl.style.color = "red";
-                }
-
-                requestAnimationFrame(update);
+            if (positive) {
+                timerEl.textContent = 'Remaining ' + pad(day) + 'd ' + pad(hour) + 'h ' + pad(minute) + 'm ' + pad(second) + 's';
+            } else {
+                timerEl.textContent = 'Over ' + pad(day) + 'd ' + pad(hour) + 'h ' + pad(minute) + 'm ' + pad(second) + 's';
+            }
+            if (!positive) {
+                timerEl.style.color = "red";
+                dayStatusEl.style.color = "red";
             }
 
+            requestAnimationFrame(update);
+        }
+
             update()
-            </script>
+        </script>
 </body>
 </html>
