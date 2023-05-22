@@ -139,6 +139,9 @@
         .color-r{
             color: red;
         }
+        .color-g{
+            color: green;
+        }
     </style>
 </head>
 <body>
@@ -162,7 +165,7 @@
                     <table class="data-table">
                         <tbody><tr>
                             <td>Status</td>
-                            <td><span class="color-r">no</span> </td>
+                            <td><span class="color-g">yes</span> </td>
                         </tr>
                         <tr>
                             <td>Target VR</td>
@@ -201,15 +204,6 @@
             const second = Math.floor(r3 / 1000);
             const pad = i => i < 10 ? '' + i : '' + i;
 
-            if (positive) {
-                timerEl.textContent = 'Remaining ' + pad(day) + 'd ' + pad(hour) + 'h ' + pad(minute) + 'm ' + pad(second) + 's';
-            } else {
-                timerEl.textContent = 'Over ' + pad(day) + 'd ' + pad(hour) + 'h ' + pad(minute) + 'm ' + pad(second) + 's';
-            }
-            if (!positive) {
-                timerEl.style.color = "red";
-                dayStatusEl.style.color = "red";
-            }
 
             requestAnimationFrame(update);
         }
